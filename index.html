@@ -1556,23 +1556,48 @@
     </section>
 
     <script>
-        // Project switching functionality
-        const projectItems = document.querySelectorAll('.project-item');
-        const laptopScreen = document.querySelector('.laptop-screen img');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Project switching functionality
+            const projectItems = document.querySelectorAll('.project-item');
+            const laptopScreen = document.querySelector('.laptop-screen img');
 
-        projectItems.forEach(item => {
-            item.addEventListener('click', function() {
-                // Remove active class from all items
-                projectItems.forEach(project => project.classList.remove('active'));
+            projectItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all items
+                    projectItems.forEach(project => project.classList.remove('active'));
 
-                // Add active class to clicked item
-                this.classList.add('active');
+                    // Add active class to clicked item
+                    this.classList.add('active');
 
-                // Change laptop image
-                const imageUrl = this.getAttribute('data-image');
-                if (imageUrl && laptopScreen) {
-                    laptopScreen.src = imageUrl;
-                }
+                    // Change laptop image
+                    const imageUrl = this.getAttribute('data-image');
+                    if (imageUrl && laptopScreen) {
+                        laptopScreen.src = imageUrl;
+                    }
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Scroll to target with offset for better positioning
+                        const yOffset = -20; // 20px offset from top
+                        const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+                        window.scrollTo({
+                            top: y,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
         });
     </script>
