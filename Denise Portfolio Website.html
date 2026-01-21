@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denise - Portfolio</title>
+    <style>
+        @font-face {
+            font-family: 'SF Pro Display Bold';
+            src: url('https://cdn.jsdelivr.net/gh/deniseainahdavid/Fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://cdn.jsdelivr.net/gh/deniseainahdavid/Fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffffff 0%, #c7c7cc 50%, #8e8e93 100%);
+        }
+
+        /* Animated background gradient orbs */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(199, 199, 204, 0.4) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(0, 122, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 80%, rgba(142, 142, 147, 0.3) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes drift {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(5%, -5%) rotate(120deg);
+            }
+            66% {
+                transform: translate(-5%, 5%) rotate(240deg);
+            }
+        }
+
+        /* Hero Container */
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Left Column */
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hero-emoji {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+        }
+
+        .hero h1 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.75rem);
+            line-height: 1.1;
+            color: #000000;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: #8e8e93;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* CTA Buttons */
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #007aff;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #0051d5;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 122, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(40px) saturate(150%);
+            -webkit-backdrop-filter: blur(40px) saturate(150%);
+            color: #000000;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+                        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15),
+                        inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Brands Section */
+        .brands {
+            padding: 4rem 2rem;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .brands-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .brands h2 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #000000;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Logo Slider */
+        .logo-slider {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .logo-track {
+            display: flex;
+            gap: 4rem;
+            animation: scroll 25s linear infinite;
+        }
+
+        .logo-slide {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .logo-slide img {
+            height: 60px;
+            width: auto;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .logo-slide img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* AI Features Section */
+        .ai-features {
+            padding: 6rem 2rem;
+            background: #ffffff;
+        }
+
+        .ai-features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .ai-features h2 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #000000;
+            line-height: 1.2;
+            margin-bottom: 4rem;
+            letter-spacing: -0.02em;
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ai-logos {
+            display: inline-flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin: 0 0.25rem;
+        }
+
+        .ai-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #f5f5f7;
+            padding: 4px;
+        }
+
+        .ai-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .ai-left {
+            position: sticky;
+            top: 2rem;
+            align-self: flex-start;
+        }
+
+        .laptop-mockup {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .laptop-screen {
+            width: 100%;
+            height: auto;
+        }
+
+        .laptop-screen img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+        }
+
+        .demo-button {
+            position: absolute;
+            bottom: -20px;
+            left: 20px;
+            background: #ffffff;
+            color: #000000;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e5e5ea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .ai-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-height: 700px;
+            overflow-y: auto;
+            padding-right: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: #c7c7cc #f5f5f7;
+        }
+
+        .ai-right::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .ai-right::-webkit-scrollbar-track {
+            background: #f5f5f7;
+            border-radius: 10px;
+        }
+
+        .ai-right::-webkit-scrollbar-thumb {
+            background: #c7c7cc;
+            border-radius: 10px;
+        }
+
+        .ai-right::-webkit-scrollbar-thumb:hover {
+            background: #8e8e93;
+        }
+
+        .project-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .project-item:hover {
+            background: #f5f5f7;
+            border: 1px solid #e5e5ea;
+        }
+
+        .project-item.active {
+            background: #f5f5f7;
+            border: 1px solid #007aff;
+        }
+
+        .project-number {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1rem;
+            color: #8e8e93;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .project-content h3 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.125rem;
+            color: #000000;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .project-subtitle {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.875rem;
+            color: #8e8e93;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-meta {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.75rem;
+            color: #007aff;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .project-description {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.875rem;
+            color: #8e8e93;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-details {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.8rem;
+            color: #8e8e93;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-goal {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.875rem;
+            color: #000000;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.75rem;
+            color: #007aff;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .project-link:hover {
+            color: #0051d5;
+            text-decoration: underline;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: #f5f5f7;
+        }
+
+        .features-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            align-items: start;
+        }
+
+        .features-title h2 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #000000;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .features-title h3 {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #8e8e93;
+            margin-top: 0.5rem;
+            font-weight: normal;
+        }
+
+        .features-description p {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: #8e8e93;
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-image {
+            width: 100%;
+            overflow: hidden;
+            background: #f5f5f7;
+            flex-grow: 1;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .feature-content {
+            padding: 1.5rem 2rem;
+        }
+
+        .feature-content h4 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.125rem;
+            color: #000000;
+            letter-spacing: -0.01em;
+        }
+
+        /* Toolkit Section */
+        .toolkit {
+            padding: 6rem 2rem;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .toolkit-container {
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        .toolkit h2 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #000000;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .toolkit-subheading {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: #8e8e93;
+            text-align: center;
+            margin-bottom: 4rem;
+            line-height: 1.6;
+        }
+
+        .toolkit-canvas {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            height: 700px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+
+        .toolkit-icon {
+            position: absolute;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            animation: gentleFloat 8s ease-in-out infinite;
+        }
+
+        .toolkit-icon:hover {
+            transform: translateY(-4px);
+            opacity: 0.8;
+        }
+
+        .toolkit-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Subtle floating animation */
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Icon positioning - more compact and organized */
+        .icon-facetime {
+            top: 12%;
+            left: 10%;
+            width: 90px;
+            height: 90px;
+            animation-delay: 0s;
+        }
+
+        .icon-dog {
+            top: 8%;
+            left: 28%;
+            width: 100px;
+            height: 100px;
+            animation-delay: 1s;
+        }
+
+        .icon-appstore {
+            top: 10%;
+            left: 48%;
+            width: 75px;
+            height: 75px;
+            animation-delay: 2s;
+        }
+
+        .icon-capcut {
+            top: 12%;
+            left: 63%;
+            width: 85px;
+            height: 85px;
+            animation-delay: 3s;
+        }
+
+        .icon-weather {
+            top: 10%;
+            right: 10%;
+            width: 90px;
+            height: 90px;
+            animation-delay: 4s;
+        }
+
+        .icon-figma {
+            top: 28%;
+            left: 15%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 5s;
+        }
+
+        .icon-hubspot {
+            top: 25%;
+            left: 38%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 6s;
+        }
+
+        .icon-apollo {
+            top: 28%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            animation-delay: 7s;
+        }
+
+        .icon-pig {
+            top: 28%;
+            right: 5%;
+            width: 95px;
+            height: 95px;
+            animation-delay: 0.5s;
+        }
+
+        .icon-fox {
+            top: 50%;
+            left: 8%;
+            width: 130px;
+            height: 130px;
+            animation-delay: 1.5s;
+        }
+
+        .icon-claude {
+            top: 52%;
+            left: 28%;
+            width: 75px;
+            height: 75px;
+            animation-delay: 2.5s;
+        }
+
+        .icon-canva {
+            top: 42%;
+            left: 38%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 3.5s;
+        }
+
+        .icon-mailchimp {
+            top: 58%;
+            left: 50%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 4.5s;
+        }
+
+        .icon-davinci {
+            top: 48%;
+            left: 65%;
+            width: 100px;
+            height: 100px;
+            animation-delay: 5.5s;
+        }
+
+        .icon-owl {
+            top: 58%;
+            right: 18%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 6.5s;
+        }
+
+        .icon-music {
+            top: 48%;
+            right: 8%;
+            width: 85px;
+            height: 85px;
+            animation-delay: 7.5s;
+        }
+
+        .icon-asana {
+            top: 27%;
+            left: 54%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 1.8s;
+        }
+
+        @media (max-width: 1024px) {
+            .toolkit-canvas {
+                height: 500px;
+            }
+
+            .toolkit-icon {
+                transform: scale(0.65);
+            }
+
+            /* Reposition icons for tablet */
+            .icon-facetime { top: 15%; left: 8%; }
+            .icon-dog { top: 10%; left: 25%; }
+            .icon-appstore { top: 12%; left: 45%; }
+            .icon-capcut { top: 15%; left: 60%; }
+            .icon-weather { top: 12%; right: 8%; }
+            .icon-figma { top: 32%; left: 12%; }
+            .icon-hubspot { top: 30%; left: 35%; }
+            .icon-asana { top: 28%; left: 52%; }
+            .icon-apollo { top: 32%; right: 12%; }
+            .icon-pig { top: 30%; right: 3%; }
+            .icon-fox { top: 52%; left: 6%; }
+            .icon-claude { top: 55%; left: 25%; }
+            .icon-canva { top: 48%; left: 35%; }
+            .icon-mailchimp { top: 62%; left: 48%; }
+            .icon-davinci { top: 52%; left: 62%; }
+            .icon-owl { top: 62%; right: 15%; }
+            .icon-music { top: 52%; right: 6%; }
+
+            .features-header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .ai-left {
+                position: relative;
+                top: 0;
+            }
+
+            .laptop-mockup {
+                margin: 0 auto;
+            }
+
+            .ai-right {
+                max-height: none;
+                overflow-y: visible;
+                padding-right: 0;
+            }
+
+            .stats-card {
+                margin-left: 0;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .toolkit {
+                padding: 4rem 1rem;
+            }
+
+            .toolkit-canvas {
+                height: 400px;
+                max-width: 100%;
+            }
+
+            .toolkit-icon {
+                transform: scale(0.5);
+            }
+
+            /* Reposition icons for mobile - more spread out */
+            .icon-facetime { top: 8%; left: 5%; width: 70px; height: 70px; }
+            .icon-dog { top: 5%; left: 28%; width: 80px; height: 80px; }
+            .icon-appstore { top: 8%; left: 52%; width: 60px; height: 60px; }
+            .icon-capcut { top: 10%; left: 68%; width: 70px; height: 70px; }
+            .icon-weather { top: 8%; right: 5%; width: 70px; height: 70px; }
+
+            .icon-figma { top: 25%; left: 8%; width: 85px; height: 85px; }
+            .icon-hubspot { top: 23%; left: 32%; width: 65px; height: 65px; }
+            .icon-asana { top: 22%; left: 52%; width: 65px; height: 65px; }
+            .icon-apollo { top: 25%; right: 10%; width: 90px; height: 90px; }
+            .icon-pig { top: 25%; right: 0%; width: 75px; height: 75px; }
+
+            .icon-fox { top: 45%; left: 3%; width: 100px; height: 100px; }
+            .icon-claude { top: 48%; left: 25%; width: 60px; height: 60px; }
+            .icon-canva { top: 42%; left: 38%; width: 115px; height: 115px; }
+            .icon-mailchimp { top: 52%; left: 52%; width: 85px; height: 85px; }
+            .icon-davinci { top: 45%; left: 68%; width: 80px; height: 80px; }
+
+            .icon-owl { top: 65%; left: 15%; width: 85px; height: 85px; }
+            .icon-music { top: 65%; right: 15%; width: 70px; height: 70px; }
+        }
+
+        /* Contact Section */
+        .contact {
+            position: relative;
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 50%, #3a3a3c 100%);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Animated background gradient orbs for contact */
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(99, 99, 102, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(72, 72, 74, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 80%, rgba(0, 122, 255, 0.15) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .contact-container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-description {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: #c7c7cc;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-email {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .contact-email a {
+            color: #0a84ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-email a:hover {
+            color: #409cff;
+            text-decoration: underline;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #007aff;
+            color: #ffffff;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.125rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
+        }
+
+        .btn-contact:hover {
+            background: #0051d5;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 122, 255, 0.4);
+        }
+
+        .contact-social {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(199, 199, 204, 0.2);
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-link {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1rem;
+            color: #c7c7cc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-link:hover {
+            color: #0a84ff;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .contact {
+                padding: 5rem 2rem;
+            }
+
+            .btn-contact {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .contact-social {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Right Column - Image */
+        .hero-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Floating elements for Apple-style design */
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: float 15s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: #c7c7cc;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: #007aff;
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 250px;
+            height: 250px;
+            background: #8e8e93;
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+            66% {
+                transform: translate(-30px, 30px) scale(0.9);
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: #ffffff;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-left h2 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #000000;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .about-left h2 .highlight {
+            color: #c084fc;
+        }
+
+        .about-left p {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            color: #8e8e93;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-left p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1;
+            background: #000000;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .about-left {
+                order: 2;
+            }
+
+            .about-right {
+                order: 1;
+            }
+
+            .about-image-container {
+                margin: 0 auto;
+            }
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-left {
+                align-items: center;
+                order: 1;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .logos-grid {
+                justify-content: center;
+            }
+
+            .hero-right {
+                order: 2;
+            }
+
+            .hero-image {
+                max-width: 60%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-orb {
+                filter: blur(40px);
+            }
+
+            .orb-1, .orb-2, .orb-3 {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 3rem 1rem;
+            }
+
+            .hero-container {
+                padding: 0;
+                gap: 2rem;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hero-left {
+                order: 1;
+                gap: 1.5rem;
+            }
+
+            .hero-emoji {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 1rem;
+            }
+
+            .hero h1 {
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-cta {
+                width: 100%;
+                gap: 0.75rem;
+                margin-bottom: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 1rem 2rem;
+            }
+
+            .hero-right {
+                order: 2;
+                padding: 0;
+                width: 100%;
+            }
+
+            .hero-image {
+                max-width: 50%;
+                width: 50%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
+
+        <div class="hero-container">
+            <!-- Left Column -->
+            <div class="hero-left">
+                <div>
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Denise.svg" alt="Denise emoji" class="hero-emoji">
+                    <h1>Designer who partners with AI to build better websites faster</h1>
+                    <p>Hi, I'm Denise 👋 let's work together!</p>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View My Work ↓</a>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="hero-right">
+                <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Denise.png" alt="Denise" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <!-- Left Column -->
+            <div class="about-left">
+                <h2>Design meets <span class="highlight">development.</span></h2>
+                <p>I help brands flourish through creative work and websites that actually convert. Designing with intention, developing with AI, delivering with precision.</p>
+                <p>Based in the Philippines. Working with brands globally.</p>
+            </div>
+
+            <!-- Right Column -->
+            <div class="about-right">
+                <div class="about-image-container">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Denise%20(1).png" alt="Denise" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands">
+        <div class="brands-container">
+            <h2>I've helped brands like:</h2>
+            <div class="logo-slider">
+                <div class="logo-track">
+                    <div class="logo-slide">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/1.svg" alt="Brand 1">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/2.svg" alt="Brand 2">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/3.svg" alt="Brand 3">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/4.svg" alt="Brand 4">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/5.svg" alt="Brand 5">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/6.svg" alt="Brand 6">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/7.svg" alt="Brand 7">
+                    </div>
+                    <div class="logo-slide">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/1.svg" alt="Brand 1">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/2.svg" alt="Brand 2">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/3.svg" alt="Brand 3">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/4.svg" alt="Brand 4">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/5.svg" alt="Brand 5">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/6.svg" alt="Brand 6">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/7.svg" alt="Brand 7">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Features Section -->
+    <section class="ai-features" id="projects">
+        <div class="ai-features-container">
+            <h2>
+                Transform your brand with design that captivates and
+                <span class="ai-logos">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/1.png" alt="AI Tool 1" class="ai-logo">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/2.png" alt="AI Tool 2" class="ai-logo">
+                </span>
+                AI-powered websites that convert
+            </h2>
+
+            <div class="ai-content">
+                <!-- Left Side: Laptop Mockup -->
+                <div class="ai-left">
+                    <div class="laptop-mockup">
+                        <div class="laptop-screen">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Jrny.png" alt="Project Preview" id="project-preview">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Projects -->
+                <div class="ai-right">
+                    <div class="project-item active" data-image="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Jrny.png">
+                        <div class="project-number">01</div>
+                        <div class="project-content">
+                            <h3>JRNY Digital</h3>
+                            <div class="project-subtitle">Marketing Agency</div>
+                            <div class="project-meta">Brand Refinement / Website Redesign / 2025</div>
+                            <p class="project-description">Refined and unified JRNY Digital's brand identity—creating a cohesive brand space from an existing logo. Also includes a complete website redesign.</p>
+                            <div class="project-details">
+                                <strong>Scope:</strong> Brand guidelines, typography system, mockups, website redesign<br>
+                                <strong>Tone:</strong> Professional, growth-focused, confident
+                            </div>
+                            <div class="project-goal">
+                                <strong>The goal:</strong><br>
+                                Take an existing logo and build an entire brand world around it. Clean, premium, conversion-focused.
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.figma.com/proto/46RSL7elGEFrcdLLA1NrHu/JRNY-New-Brand-Kit?node-id=29-2&starting-point-node-id=29%3A2&t=VI16HHT2fELQHKTS-1" target="_blank" class="project-link">View Branding (Figma) →</a>
+                                <a href="https://denisejrny.github.io/JRNY-Digital-Ver-2/" target="_blank" class="project-link">View Website →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item" data-image="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Promopal.png">
+                        <div class="project-number">02</div>
+                        <div class="project-content">
+                            <h3>PromoPAL</h3>
+                            <div class="project-subtitle">Custom Branded Merchandise</div>
+                            <div class="project-meta">Website Redesign / Ecommerce / 2025</div>
+                            <p class="project-description">Complete website overhaul for an Australian promotional products company. Built for browsing, built for buying.</p>
+                            <div class="project-goal">
+                                <strong>Challenge:</strong> Make a huge product catalog feel navigable and exciting.<br>
+                                <strong>Solution:</strong> Category-first navigation, bold hero imagery, and a search experience that actually works.
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.figma.com/proto/a9RlqmNC0HsY7VP3ePGxwq/Promopal-Website-Redesign?node-id=319-2&p=f&t=mWJKHRKOqSz0ancp-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=319%3A2" target="_blank" class="project-link">View Website (Figma) →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item" data-image="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/3.png">
+                        <div class="project-number">03</div>
+                        <div class="project-content">
+                            <h3>HPR Tyres Factory</h3>
+                            <div class="project-subtitle">Automotive Services</div>
+                            <div class="project-meta">Website Redesign / Ecommerce / 2025</div>
+                            <p class="project-description">A full redesign for an Australian-owned tyre and wheel specialist. Automotive meets digital—fast, sleek, and built to convert.</p>
+                            <div class="project-goal">
+                                <strong>Focus:</strong> Visual hierarchy, service clarity, easy booking flow<br>
+                                <strong>Design approach:</strong> Dark UI. Yellow accents. Big imagery. Everything you need to know, nothing you don't.
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.figma.com/design/p07vJFloyAIgTaa4gAU78I/HPR-Tyres-Factory-Website-Redesign?node-id=0-1&t=M2UOvVgSgBCll2k3-1" target="_blank" class="project-link">View Website (Figma) →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item" data-image="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/4.png">
+                        <div class="project-number">04</div>
+                        <div class="project-content">
+                            <h3>Propeller</h3>
+                            <div class="project-subtitle">Outsourcing & Advisory</div>
+                            <div class="project-meta">Website Design / 2024</div>
+                            <p class="project-description">A fresh, modern website for an Australian outsourcing company. Designed to feel professional and approachable—showing global reach while staying human.</p>
+                            <div class="project-details">
+                                <strong>Target audience:</strong> Australian SMBs, global companies, institutions<br>
+                                <strong>Focus:</strong> Trust, expertise, seamless service
+                            </div>
+                            <div class="project-goal">
+                                <strong>Design philosophy:</strong><br>
+                                Clean layouts. Clear messaging. Gradient accents that feel modern without being trendy.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item" data-image="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/5.png">
+                        <div class="project-number">05</div>
+                        <div class="project-content">
+                            <h3>Engage U</h3>
+                            <div class="project-subtitle">NDIS Provider</div>
+                            <div class="project-meta">Brand Identity / Website Design / 2024</div>
+                            <p class="project-description">A complete brand system for an NDIS provider empowering individuals with disabilities. Designed to be friendly, accessible, and professional—from logo to digital presence.</p>
+                            <div class="project-details">
+                                <strong>Scope:</strong> Logo design, brand guidelines, color system, website design<br>
+                                <strong>Tone:</strong> Empowering, inclusive, warm
+                            </div>
+                            <div class="project-goal">
+                                <strong>The challenge:</strong> Create an identity that feels welcoming to families while maintaining credibility with healthcare professionals.<br>
+                                <strong>The solution:</strong> A tree-inspired logo representing growth and support, paired with an accessible color palette and clear, compassionate messaging.
+                            </div>
+                            <div class="project-links">
+                                <a href="https://engageus.com.au/" target="_blank" class="project-link">Preview Website →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item" data-image="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/6.png">
+                        <div class="project-number">06</div>
+                        <div class="project-content">
+                            <h3>Swan Caring Hands</h3>
+                            <div class="project-subtitle">In-Home Care Services</div>
+                            <div class="project-meta">Brand Identity / Website Design / 2024</div>
+                            <p class="project-description">Full brand identity for an in-home care company focused on dignity and respect. Every element—from the swan symbol to the color palette—reflects gentle, trustworthy care.</p>
+                            <div class="project-details">
+                                <strong>Scope:</strong> Logo design, brand identity, website design<br>
+                                <strong>Tone:</strong> Gentle, respectful, compassionate
+                            </div>
+                            <div class="project-goal">
+                                <strong>The approach:</strong><br>
+                                Elegant typography meets warm imagery. A swan became the perfect metaphor—graceful, caring, and strong.
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.swancaringhands.com.au/" target="_blank" class="project-link">Preview Website →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <div class="features-header">
+                <div class="features-title">
+                    <h2>The Back Room</h2>
+                    <h3>Offshoring (marketing initiatives)</h3>
+                </div>
+                <div class="features-description">
+                    <p>A comprehensive marketing system—from brand visuals to automated workflows. Everything designed to attract talent and convert clients.</p>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Porfolio%20-%20Denise%20Ainah%20David%20(GD).png" alt="Social Media">
+                    </div>
+                    <div class="feature-content">
+                        <h4>Social Media</h4>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Works.png" alt="Landing Pages">
+                    </div>
+                    <div class="feature-content">
+                        <h4>Landing pages</h4>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Porfolio%20-%20Denise%20Ainah%20David%20(GD)%20(1).png" alt="Client-Facing Documents">
+                    </div>
+                    <div class="feature-content">
+                        <h4>Client-Facing Documents</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toolkit Section -->
+    <section class="toolkit">
+        <div class="toolkit-container">
+            <h2>The Toolkit</h2>
+            <p class="toolkit-subheading">Every project deserves the best. Here's what I use to bring ideas to life.</p>
+            <div class="toolkit-canvas">
+                <div class="toolkit-icon icon-facetime">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/FACETIME.png" alt="FaceTime">
+                </div>
+                <div class="toolkit-icon icon-dog">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/DOG%20ANIMOJI.png" alt="Dog Animoji">
+                </div>
+                <div class="toolkit-icon icon-appstore">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/APPSTORE.png" alt="App Store">
+                </div>
+                <div class="toolkit-icon icon-capcut">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/CAPCUT.png" alt="CapCut">
+                </div>
+                <div class="toolkit-icon icon-weather">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/WEATHER.png" alt="Weather">
+                </div>
+                <div class="toolkit-icon icon-figma">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/FIGMA.png" alt="Figma">
+                </div>
+                <div class="toolkit-icon icon-hubspot">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/HUBSPOT.png" alt="HubSpot">
+                </div>
+                <div class="toolkit-icon icon-asana">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/ASANA.png" alt="Asana">
+                </div>
+                <div class="toolkit-icon icon-apollo">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/APOLLO.png" alt="Apollo">
+                </div>
+                <div class="toolkit-icon icon-pig">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/PIG%20ANIMOJI.png" alt="Pig Animoji">
+                </div>
+                <div class="toolkit-icon icon-fox">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/FOX%20ANIMOJI.png" alt="Fox Animoji">
+                </div>
+                <div class="toolkit-icon icon-claude">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/CLAUDE.png" alt="Claude">
+                </div>
+                <div class="toolkit-icon icon-canva">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/CANVA.png" alt="Canva">
+                </div>
+                <div class="toolkit-icon icon-mailchimp">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/MAILCHIMP.png" alt="Mailchimp">
+                </div>
+                <div class="toolkit-icon icon-davinci">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/DAVINCI%20RESOLVE.png" alt="DaVinci Resolve">
+                </div>
+                <div class="toolkit-icon icon-owl">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/OWL%20EMOJI.png" alt="Owl Emoji">
+                </div>
+                <div class="toolkit-icon icon-music">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/MUSIC.png" alt="Music">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-container">
+            <h2>Let's create something.</h2>
+            <p class="contact-description">Whether it's a full campaign, a single project, or just an idea you want to explore—let's talk.</p>
+            <p class="contact-email">email: <a href="mailto:denisedavid.marketing@gmail.com">denisedavid.marketing@gmail.com</a></p>
+            <a href="mailto:denisedavid.marketing@gmail.com" class="btn-contact">Send Email</a>
+
+            <div class="contact-social">
+                <a href="https://www.linkedin.com/in/ainsdavid/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    LinkedIn
+                </a>
+                <span style="color: rgba(199, 199, 204, 0.3);">•</span>
+                <a href="https://www.facebook.com/share/1BkdPZHBvk/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link">
+                    Facebook
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Project switching functionality
+        const projectItems = document.querySelectorAll('.project-item');
+        const laptopScreen = document.querySelector('.laptop-screen img');
+
+        projectItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove active class from all items
+                projectItems.forEach(project => project.classList.remove('active'));
+
+                // Add active class to clicked item
+                this.classList.add('active');
+
+                // Change laptop image
+                const imageUrl = this.getAttribute('data-image');
+                if (imageUrl && laptopScreen) {
+                    laptopScreen.src = imageUrl;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
