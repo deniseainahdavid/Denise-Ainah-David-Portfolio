@@ -99,11 +99,13 @@
             height: 80px;
             margin-bottom: 1.5rem;
             filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         .hero h1 {
             font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: clamp(2.5rem, 5vw, 3.75rem);
+            font-size: clamp(2rem, 4.5vw, 3.25rem);
             line-height: 1.1;
             color: #000000;
             letter-spacing: -0.02em;
@@ -456,15 +458,12 @@
             margin: 0 auto;
         }
 
-        .features-header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+        .features-header-center {
+            text-align: center;
             margin-bottom: 4rem;
-            align-items: start;
         }
 
-        .features-title h2 {
+        .features-header-center h2 {
             font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
             font-size: clamp(2rem, 4vw, 3rem);
             color: #000000;
@@ -472,25 +471,12 @@
             letter-spacing: -0.02em;
         }
 
-        .features-title h3 {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            color: #8e8e93;
-            margin-top: 0.5rem;
-            font-weight: normal;
-        }
-
-        .features-description p {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: clamp(1rem, 2vw, 1.125rem);
-            color: #8e8e93;
-            line-height: 1.6;
-        }
-
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .feature-card {
@@ -531,6 +517,368 @@
             font-size: 1.125rem;
             color: #000000;
             letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-content p {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.95rem;
+            color: #8e8e93;
+            line-height: 1.5;
+        }
+
+        /* Campaign Flow Section */
+        .campaign-flow {
+            padding: 6rem 2rem;
+            background: #ffffff;
+        }
+
+        .campaign-flow-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .campaign-flow h2 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #000000;
+            line-height: 1.2;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .flow-item {
+            flex: 1;
+            background: #ffffff;
+            padding: 2rem 1.5rem;
+            border: 2px solid #e5e5ea;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .flow-item:first-child {
+            border-radius: 16px 0 0 16px;
+        }
+
+        .flow-item:last-child {
+            border-radius: 0 16px 16px 0;
+        }
+
+        .flow-item:not(:last-child) {
+            border-right: none;
+        }
+
+        .flow-item:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #007aff;
+            font-weight: bold;
+            z-index: 10;
+            background: #ffffff;
+            padding: 0 5px;
+        }
+
+        .flow-item:hover {
+            background: #f5f5f7;
+            border-color: #007aff;
+        }
+
+        .flow-number {
+            width: 40px;
+            height: 40px;
+            background: #007aff;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .flow-item p {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.95rem;
+            color: #000000;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .flow-description {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: #8e8e93;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            padding: 6rem 2rem;
+            background: #f5f5f7;
+        }
+
+        .case-study-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-study h2 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #000000;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            text-align: center;
+        }
+
+        .case-study-title {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: #007aff;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .case-study-section {
+            margin-bottom: 3rem;
+        }
+
+        .case-study-section h4 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-section p {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: #8e8e93;
+            line-height: 1.6;
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .case-study-item {
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .case-study-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .case-study-content {
+            padding: 1.5rem;
+        }
+
+        .case-study-content h5 {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.95rem;
+            color: #000000;
+            line-height: 1.5;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-image {
+            width: 100%;
+            overflow: hidden;
+            background: #f5f5f7;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+        }
+
+        .case-study-image img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .case-study-conclusion {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: #000000;
+            line-height: 1.6;
+            text-align: center;
+            margin-top: 2rem;
+            font-weight: 500;
+        }
+
+        .case-study-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .case-study-list li {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: #8e8e93;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .case-study-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #007aff;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .case-study-list li strong {
+            color: #000000;
+            font-weight: 500;
+        }
+
+        .campaign-flow-text {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+            color: #000000;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 1.5rem;
+            background: #ffffff;
+            border-radius: 16px;
+            border: 2px solid #007aff;
+        }
+
+        .case-study-flow-outcome-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-metric {
+            color: #007aff;
+            font-weight: 600;
+        }
+
+        .tools-used-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .tools-logos {
+            position: relative;
+            height: 350px;
+        }
+
+        .tools-logo {
+            position: absolute;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            animation: gentleFloat 8s ease-in-out infinite;
+        }
+
+        .tools-logo:hover {
+            transform: translateY(-4px);
+            opacity: 0.8;
+        }
+
+        .tools-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .tools-logo-meta {
+            top: 18%;
+            left: 18%;
+            width: 95px;
+            height: 95px;
+            animation-delay: 0s;
+        }
+
+        .tools-logo-davinci {
+            top: 20%;
+            left: 50%;
+            margin-left: -50px;
+            width: 100px;
+            height: 100px;
+            animation-delay: 2s;
+        }
+
+        .tools-logo-chatgpt {
+            top: 18%;
+            right: 18%;
+            width: 90px;
+            height: 90px;
+            animation-delay: 4s;
+        }
+
+        .tools-logo-claude {
+            bottom: 20%;
+            left: 22%;
+            width: 85px;
+            height: 85px;
+            animation-delay: 1s;
+        }
+
+        .tools-logo-canva {
+            bottom: 16%;
+            left: 50%;
+            margin-left: -57.5px;
+            width: 115px;
+            height: 115px;
+            animation-delay: 3s;
+        }
+
+        .tools-logo-hubspot {
+            bottom: 20%;
+            right: 22%;
+            width: 90px;
+            height: 90px;
+            animation-delay: 5s;
         }
 
         /* Toolkit Section */
@@ -765,14 +1113,61 @@
             .icon-owl { top: 62%; right: 15%; }
             .icon-music { top: 52%; right: 6%; }
 
-            .features-header {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .features-grid {
+            .flow-diagram {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .flow-item {
+                border-radius: 0 !important;
+                border-right: 2px solid #e5e5ea !important;
+            }
+
+            .flow-item:first-child {
+                border-radius: 16px 16px 0 0 !important;
+            }
+
+            .flow-item:last-child {
+                border-radius: 0 0 16px 16px !important;
+            }
+
+            .flow-item:not(:last-child) {
+                border-bottom: none;
+            }
+
+            .flow-item:not(:last-child)::after {
+                content: '↓';
+                right: auto;
+                top: auto;
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .case-study-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .tools-used-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .case-study-flow-outcome-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .tools-logos {
+                height: 280px;
+            }
+
+            .tools-logo {
+                transform: scale(0.75);
             }
 
             .ai-content {
@@ -836,6 +1231,51 @@
 
             .icon-owl { top: 65%; left: 15%; width: 85px; height: 85px; }
             .icon-music { top: 65%; right: 15%; width: 70px; height: 70px; }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .campaign-flow {
+                padding: 4rem 1rem;
+            }
+
+            .flow-diagram {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .flow-item {
+                padding: 1.5rem 1rem;
+            }
+
+            .case-study {
+                padding: 4rem 1rem;
+            }
+
+            .case-study-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-used-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .tools-logos {
+                height: 220px;
+            }
+
+            .tools-logo {
+                transform: scale(0.55);
+            }
+
+            .tools-logo-meta { top: 12%; left: 8%; width: 50px; height: 50px; }
+            .tools-logo-davinci { top: 15%; left: 50%; margin-left: -27.5px; width: 55px; height: 55px; }
+            .tools-logo-chatgpt { top: 12%; right: 8%; width: 50px; height: 50px; }
+            .tools-logo-claude { bottom: 22%; left: 12%; width: 45px; height: 45px; }
+            .tools-logo-canva { bottom: 18%; left: 50%; margin-left: -32.5px; width: 65px; height: 65px; }
+            .tools-logo-hubspot { bottom: 22%; right: 12%; width: 50px; height: 50px; }
         }
 
         /* Contact Section */
@@ -1222,12 +1662,13 @@
             <div class="hero-left">
                 <div>
                     <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Denise.svg" alt="Denise emoji" class="hero-emoji">
-                    <h1>Designer who partners with AI to build better websites faster</h1>
+                    <h1>Digital Marketer Specialising in Lead Generation, Campaigns & Conversion-Focused Design</h1>
                     <p>Hi, I'm Denise 👋 let's work together!</p>
                 </div>
 
                 <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">View My Work ↓</a>
+                    <a href="#specialize" class="btn btn-primary">View My Work ↓</a>
+                    <a href="https://drive.google.com/file/d/1nvrOEvf8udCudwQcEg11U6qX3F2OFKys/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download Resume</a>
                 </div>
             </div>
 
@@ -1243,15 +1684,15 @@
         <div class="about-container">
             <!-- Left Column -->
             <div class="about-left">
-                <h2>Design meets <span class="highlight">development.</span></h2>
-                <p>I help brands flourish through creative work and websites that actually convert. Designing with intention, developing with AI, delivering with precision.</p>
+                <h2>Turning Traffic Into <span class="highlight">Leads</span></h2>
+                <p>I design and build conversion-focused marketing campaigns, combining landing pages, email marketing, ad creatives, and content that support real lead generation.</p>
                 <p>Based in the Philippines. Working with brands globally.</p>
             </div>
 
             <!-- Right Column -->
             <div class="about-right">
                 <div class="about-image-container">
-                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Denise%20(1).png" alt="Denise" class="about-image">
+                    <video src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/EmojiMovie792345410.mov" class="about-image" autoplay loop muted playsinline></video>
                 </div>
             </div>
         </div>
@@ -1286,14 +1727,192 @@
         </div>
     </section>
 
+    <!-- Features Section -->
+    <section class="features" id="specialize">
+        <div class="features-container">
+            <div class="features-header-center">
+                <h2>What I Specialize In:</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Works.png" alt="Landing Pages & Funnels">
+                    </div>
+                    <div class="feature-content">
+                        <h4>Landing Pages & Funnels</h4>
+                        <p>High-converting pages built for campaigns and traffic.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Email%20Sequence%20Marketing%20+%20Workflow%20Automation.png" alt="Email Marketing & Automation">
+                    </div>
+                    <div class="feature-content">
+                        <h4>Email Marketing & Automation</h4>
+                        <p>HubSpot workflows, nurture sequences, and campaign emails.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Porfolio%20-%20Denise%20Ainah%20David%20(GD).png" alt="Campaign Creatives">
+                    </div>
+                    <div class="feature-content">
+                        <h4>Campaign Creatives</h4>
+                        <p>Static and video ads aligned with landing page messaging.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Porfolio%20-%20Denise%20Ainah%20David%20(GD)%20(1).png" alt="Lead Magnets & Content">
+                    </div>
+                    <div class="feature-content">
+                        <h4>Lead Magnets & Content</h4>
+                        <p>PDFs, eBooks, and guides designed to capture and warm leads.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campaign Flow Section -->
+    <section class="campaign-flow">
+        <div class="campaign-flow-container">
+            <h2>How I Support In Digital Campaigns</h2>
+            <div class="flow-diagram">
+                <div class="flow-item">
+                    <div class="flow-number">1</div>
+                    <p>Social Media Content</p>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-number">2</div>
+                    <p>Landing Page</p>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-number">3</div>
+                    <p>Lead Magnet</p>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-number">4</div>
+                    <p>Email Nurture</p>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-number">5</div>
+                    <p>Sales Support</p>
+                </div>
+            </div>
+            <p class="flow-description">I design marketing assets as part of a connected system, ensuring every piece supports conversion and the buyer journey.</p>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section class="case-study">
+        <div class="case-study-container">
+            <h2>Campaign Case Study: From Click to Conversion</h2>
+            <h3 class="case-study-title">Growth Calculator Campaign</h3>
+
+            <div class="case-study-section">
+                <h4>The Goal</h4>
+                <p>Encourage prospects to input their business numbers into a growth calculator to demonstrate how offshoring could support scalability, ROI, and long-term growth, shifting the conversation from cost to strategic growth.</p>
+            </div>
+
+            <div class="case-study-section">
+                <h4>What I Built</h4>
+
+                <div class="case-study-grid">
+                    <div class="case-study-item">
+                        <div class="case-study-image">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/GC%201.png" alt="Growth Calculator Landing Page">
+                        </div>
+                        <div class="case-study-content">
+                            <h5>A conversion-focused landing page designed to guide users toward completing the growth calculator</h5>
+                        </div>
+                    </div>
+
+                    <div class="case-study-item">
+                        <div class="case-study-image">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/GC%202.png" alt="Social Media Content">
+                        </div>
+                        <div class="case-study-content">
+                            <h5>Supporting social media content to drive traffic and introduce the growth narrative</h5>
+                        </div>
+                    </div>
+
+                    <div class="case-study-item">
+                        <div class="case-study-image">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/GC%203.png" alt="Explainer Video">
+                        </div>
+                        <div class="case-study-content">
+                            <h5>A short-form explainer video, embedded on the landing page, to increase engagement and clarify the value of the calculator</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="case-study-conclusion">All assets were designed to work together as part of a single campaign funnel.</p>
+            </div>
+
+            <div class="case-study-section">
+                <h4>Tools Used</h4>
+                <div class="tools-used-container">
+                    <ul class="case-study-list">
+                        <li><strong>HubSpot</strong> – landing page creation and lead capture</li>
+                        <li><strong>Canva</strong> – design of campaign visuals and social content</li>
+                        <li><strong>DaVinci Resolve</strong> – video editing for landing page explainer</li>
+                        <li><strong>ChatGPT & AI tools</strong> – campaign messaging and copy refinement</li>
+                        <li><strong>Meta Business Suite</strong> – content scheduling and campaign support</li>
+                    </ul>
+                    <div class="tools-logos">
+                        <div class="tools-logo tools-logo-hubspot">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/HUBSPOT.png" alt="HubSpot">
+                        </div>
+                        <div class="tools-logo tools-logo-canva">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/CANVA.png" alt="Canva">
+                        </div>
+                        <div class="tools-logo tools-logo-davinci">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/DAVINCI%20RESOLVE.png" alt="DaVinci Resolve">
+                        </div>
+                        <div class="tools-logo tools-logo-claude">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/CLAUDE.png" alt="Claude AI">
+                        </div>
+                        <div class="tools-logo tools-logo-meta">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Meta.png" alt="Meta Business Suite">
+                        </div>
+                        <div class="tools-logo tools-logo-chatgpt">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Chatgpt.png" alt="ChatGPT">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-flow-outcome-container">
+                <div class="case-study-section">
+                    <h4>Campaign Flow</h4>
+                    <p class="campaign-flow-text">Social Media Content → Growth Calculator Landing Page → Calculator Interaction → Lead Capture for Follow-Up Conversations</p>
+                    <p>This structure ensured traffic was guided toward a clear action rather than passive content consumption.</p>
+                </div>
+
+                <div class="case-study-section">
+                    <h4>Outcome</h4>
+                    <ul class="case-study-list">
+                        <li>Generated consistent <strong class="highlight-metric">website traffic during Q4 2025</strong></li>
+                        <li>Captured <strong class="highlight-metric">10 qualified prospect leads</strong> through the growth calculator</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- AI Features Section -->
     <section class="ai-features" id="projects">
         <div class="ai-features-container">
             <h2>
                 Transform your brand with design that captivates and
                 <span class="ai-logos">
-                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/CLAUDE%20AI%20123.png" alt="AI Tool 1" class="ai-logo">
-                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/CHATGPT%20124.png" alt="AI Tool 2" class="ai-logo">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/1.png" alt="AI Tool 1" class="ai-logo">
+                    <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/2.png" alt="AI Tool 2" class="ai-logo">
                 </span>
                 AI-powered websites that convert
             </h2>
@@ -1424,50 +2043,6 @@
                                 <a href="https://www.swancaringhands.com.au/" target="_blank" class="project-link">Preview Website →</a>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="features-container">
-            <div class="features-header">
-                <div class="features-title">
-                    <h2>The Back Room</h2>
-                    <h3>Offshoring (marketing initiatives)</h3>
-                </div>
-                <div class="features-description">
-                    <p>A comprehensive marketing system—from brand visuals to automated workflows. Everything designed to attract talent and convert clients.</p>
-                </div>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-image">
-                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Porfolio%20-%20Denise%20Ainah%20David%20(GD).png" alt="Social Media">
-                    </div>
-                    <div class="feature-content">
-                        <h4>Social Media</h4>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-image">
-                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Works.png" alt="Landing Pages">
-                    </div>
-                    <div class="feature-content">
-                        <h4>Landing pages</h4>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-image">
-                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Porfolio%20-%20Denise%20Ainah%20David%20(GD)%20(1).png" alt="Client-Facing Documents">
-                    </div>
-                    <div class="feature-content">
-                        <h4>Client-Facing Documents</h4>
                     </div>
                 </div>
             </div>
