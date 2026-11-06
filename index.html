@@ -216,6 +216,11 @@
             filter: grayscale(100%);
         }
 
+        /* Twomey logo is a tight wordmark, so it needs less height than the padded brand logos */
+        .logo-slide img.logo-tdl {
+            height: 30px;
+        }
+
         .logo-slide img:hover {
             opacity: 1;
             filter: grayscale(0%);
@@ -1412,6 +1417,412 @@
             }
         }
 
+        /* Current Role / Featured Experience Section */
+        .current-role {
+            padding: 6rem 2rem;
+            background: #f5f5f7;
+        }
+
+        .current-role-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .role-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #007aff;
+            background: rgba(0, 122, 255, 0.08);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.25rem;
+        }
+
+        .role-eyebrow::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #34c759;
+            box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.2);
+        }
+
+        .role-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .role-header h2 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #000000;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .role-header .role-title {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            color: #8e8e93;
+            line-height: 1.6;
+        }
+
+        .role-header .role-title strong {
+            color: #000000;
+            font-weight: 500;
+        }
+
+        .role-highlight {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 2rem;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .growth-stat-label {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #8e8e93;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+
+        .growth-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 1.25rem;
+        }
+
+        .growth-from {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #c7c7cc;
+        }
+
+        .growth-arrow {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #007aff;
+        }
+
+        .growth-to {
+            font-size: clamp(3.5rem, 9vw, 6rem);
+            color: #007aff;
+        }
+
+        .growth-caption {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: #8e8e93;
+            line-height: 1.6;
+        }
+
+        .growth-caption strong {
+            color: #000000;
+            font-weight: 500;
+        }
+
+        .growth-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .growth-pill {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #000000;
+            background: #f5f5f7;
+            border: 1px solid #e5e5ea;
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+        }
+
+        .growth-chart {
+            background: #f5f5f7;
+            border-radius: 24px;
+            padding: 2rem 1.5rem 1.25rem;
+        }
+
+        .growth-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            gap: 1rem;
+            height: 200px;
+            border-bottom: 1px solid #e5e5ea;
+        }
+
+        .growth-bar {
+            flex: 1;
+            max-width: 70px;
+            border-radius: 12px 12px 4px 4px;
+            background: #c7c7cc;
+            position: relative;
+        }
+
+        .growth-bar span {
+            position: absolute;
+            top: -1.6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.875rem;
+            color: #000000;
+            white-space: nowrap;
+        }
+
+        .growth-bar.is-end {
+            background: #007aff;
+        }
+
+        .growth-bar.is-end span {
+            color: #007aff;
+        }
+
+        .growth-axis {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        .growth-axis div {
+            flex: 1;
+            max-width: 70px;
+            text-align: center;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.8rem;
+            color: #8e8e93;
+        }
+
+        /* Proof of work gallery */
+        .proof {
+            margin-bottom: 3rem;
+        }
+
+        .proof-heading {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .proof-heading h3 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: #000000;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .proof-heading p {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: #8e8e93;
+            line-height: 1.6;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .proof-item {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .proof-phone {
+            background: #000000;
+            border-radius: 28px;
+            padding: 6px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .proof-phone img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 400 / 867;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 22px;
+            background: #f5f5f7;
+        }
+
+        .proof-item:hover .proof-phone {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0, 122, 255, 0.2);
+        }
+
+        .proof-platform {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #007aff;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.25rem;
+        }
+
+        .proof-caption {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1rem;
+            color: #000000;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 1024px) {
+            .proof-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .proof-grid {
+                gap: 1.5rem 1rem;
+            }
+
+            .proof-phone {
+                border-radius: 20px;
+                padding: 4px;
+            }
+
+            .proof-phone img {
+                border-radius: 16px;
+            }
+
+            .proof-caption {
+                font-size: 0.875rem;
+            }
+        }
+
+        .role-duties {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .duty-card.is-wide {
+            grid-column: span 2;
+        }
+
+        .duty-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid transparent;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .duty-card:hover {
+            transform: translateY(-4px);
+            border-color: #007aff;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .duty-icon {
+            display: block;
+            width: 44px;
+            height: 44px;
+            padding: 10px;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            color: #007aff;
+            background: rgba(0, 122, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .duty-card:hover .duty-icon {
+            color: #ffffff;
+            background: #007aff;
+        }
+
+        .duty-card h4 {
+            font-family: 'SF Pro Display Bold', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1.05rem;
+            color: #000000;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.4rem;
+        }
+
+        .duty-card p {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.9rem;
+            color: #8e8e93;
+            line-height: 1.5;
+        }
+
+        .role-cta {
+            text-align: center;
+        }
+
+        @media (max-width: 1024px) {
+            .role-highlight {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+
+            .role-duties {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .duty-card.is-wide {
+                grid-column: auto;
+            }
+
+            .duty-card:last-child {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .role-duties {
+                grid-template-columns: 1fr;
+            }
+
+            .duty-card:last-child {
+                grid-column: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .current-role {
+                padding: 4rem 1rem;
+            }
+
+            .role-highlight {
+                padding: 1.5rem;
+                border-radius: 24px;
+            }
+
+            .growth-bars {
+                height: 160px;
+            }
+        }
+
         /* Right Column - Image */
         .hero-right {
             display: flex;
@@ -1662,13 +2073,13 @@
             <div class="hero-left">
                 <div>
                     <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/Denise.svg" alt="Denise emoji" class="hero-emoji">
-                    <h1>Digital Marketer Specialising in Lead Generation, Campaigns & Conversion-Focused Design</h1>
+                    <h1>Digital & Content Marketer Specialising in Social Growth, Lead Generation & Conversion-Focused Design</h1>
                     <p>Hi, I'm Denise 👋 let's work together!</p>
                 </div>
 
                 <div class="hero-cta">
-                    <a href="#specialize" class="btn btn-primary">View My Work ↓</a>
-                    <a href="https://drive.google.com/file/d/1nvrOEvf8udCudwQcEg11U6qX3F2OFKys/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download Resume</a>
+                    <a href="#experience" class="btn btn-primary">View My Work ↓</a>
+                    <a href="https://drive.google.com/file/d/1yozu6OWIQ074bZjPmq7June-mH9Z0_L9/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Download Resume</a>
                 </div>
             </div>
 
@@ -1686,6 +2097,7 @@
             <div class="about-left">
                 <h2>Turning Traffic Into <span class="highlight">Leads</span></h2>
                 <p>I design and build conversion-focused marketing campaigns, combining landing pages, email marketing, ad creatives, and content that support real lead generation.</p>
+                <p>Currently Content Marketing Coordinator at Twomey Dispute Lawyers, where I doubled their social following from 5K to 10K in 3 months.</p>
                 <p>Based in the Philippines. Working with brands globally.</p>
             </div>
 
@@ -1712,6 +2124,7 @@
                         <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/5.svg" alt="Brand 5">
                         <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/6.svg" alt="Brand 6">
                         <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/7.svg" alt="Brand 7">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/TDL.svg" alt="Twomey Dispute Lawyers" class="logo-tdl">
                     </div>
                     <div class="logo-slide">
                         <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/1.svg" alt="Brand 1">
@@ -1721,8 +2134,127 @@
                         <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/5.svg" alt="Brand 5">
                         <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/6.svg" alt="Brand 6">
                         <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/7.svg" alt="Brand 7">
+                        <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/TDL.svg" alt="Twomey Dispute Lawyers" class="logo-tdl">
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Role Section -->
+    <section class="current-role" id="experience">
+        <div class="current-role-container">
+            <div class="role-header">
+                <span class="role-eyebrow">Currently working with</span>
+                <h2>Twomey Dispute Lawyers</h2>
+                <p class="role-title"><strong>Content Marketing Coordinator</strong> · April 2026 – Present · Australia (Remote)</p>
+            </div>
+
+            <div class="role-highlight">
+                <div>
+                    <p class="growth-stat-label">Social media growth</p>
+                    <div class="growth-stat">
+                        <span class="growth-from">5K</span>
+                        <span class="growth-arrow">→</span>
+                        <span class="growth-to">10K</span>
+                    </div>
+                    <p class="growth-caption"><strong>Doubled the follower count in just 3 months</strong> for a specialist litigation firm with offices in Melbourne, Sydney, Brisbane and the Gold Coast, through consistent short-form video, community engagement and a clear content strategy.</p>
+                    <div class="growth-pills">
+                        <span class="growth-pill">2× audience</span>
+                        <span class="growth-pill">+5,000 followers</span>
+                        <span class="growth-pill">3 months</span>
+                        <span class="growth-pill">Up to 314K views per video</span>
+                    </div>
+                </div>
+                <div class="growth-chart" role="img" aria-label="Followers grew from 5,000 at the start to 10,000 three months later">
+                    <div class="growth-bars">
+                        <div class="growth-bar" style="height: 50%;"><span>5K</span></div>
+                        <div class="growth-bar is-end" style="height: 100%;"><span>10K</span></div>
+                    </div>
+                    <div class="growth-axis">
+                        <div>Start</div>
+                        <div>Month 3</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="proof-heading">
+                    <h3>Proof of Work</h3>
+                    <p>Straight from Twomey's Instagram and TikTok. Tap any screenshot to view it full size.</p>
+                </div>
+                <div class="proof-grid">
+                    <a class="proof-item" href="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/IMG_4684.PNG" target="_blank" rel="noopener noreferrer">
+                        <div class="proof-phone">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/IMG_4684.PNG?tr=w-600" alt="Twomey Dispute Lawyers verified Instagram profile showing 10.5K followers" loading="lazy">
+                        </div>
+                        <p class="proof-platform">Instagram</p>
+                        <p class="proof-caption">Verified profile, now at 10.5K followers</p>
+                    </a>
+                    <a class="proof-item" href="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/IMG_4685.PNG" target="_blank" rel="noopener noreferrer">
+                        <div class="proof-phone">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/IMG_4685.PNG?tr=w-600" alt="Twomey Instagram grid of branded short-form video posts" loading="lazy">
+                        </div>
+                        <p class="proof-platform">Instagram</p>
+                        <p class="proof-caption">A consistent, on-brand content feed</p>
+                    </a>
+                    <a class="proof-item" href="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/IMG_4686.PNG" target="_blank" rel="noopener noreferrer">
+                        <div class="proof-phone">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/IMG_4686.PNG?tr=w-600" alt="Twomey Instagram Reels with view counts up to 148K" loading="lazy">
+                        </div>
+                        <p class="proof-platform">Instagram Reels</p>
+                        <p class="proof-caption">Reels reaching up to 148K views</p>
+                    </a>
+                    <a class="proof-item" href="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/IMG_4687.PNG" target="_blank" rel="noopener noreferrer">
+                        <div class="proof-phone">
+                            <img src="https://ik.imagekit.io/efr7zszjd/Denise%20-%20Portfolio%20website/IMG_4687.PNG?tr=w-600" alt="Twomey TikTok profile with videos reaching 314.1K and 162.6K views" loading="lazy">
+                        </div>
+                        <p class="proof-platform">TikTok</p>
+                        <p class="proof-caption">Videos reaching up to 314.1K views</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="role-duties">
+                <div class="duty-card is-wide">
+                    <svg class="duty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg>
+                    <h4>Video Editing & Production</h4>
+                    <p>Short-form Reels, TikToks and Shorts, plus long-form videos for every digital platform.</p>
+                </div>
+                <div class="duty-card">
+                    <svg class="duty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+                    <h4>Social Media Management</h4>
+                    <p>Content planning, scheduling, publishing and performance monitoring across platforms.</p>
+                </div>
+                <div class="duty-card">
+                    <svg class="duty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                    <h4>SEO & AEO Strategy</h4>
+                    <p>Search and Answer Engine Optimisation to lift rankings, visibility and discoverability.</p>
+                </div>
+                <div class="duty-card">
+                    <svg class="duty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5z"/><path d="m2 13 10 5 10-5"/></svg>
+                    <h4>Content Management & Strategy</h4>
+                    <p>Planning, organising and optimising content across multiple channels.</p>
+                </div>
+                <div class="duty-card">
+                    <svg class="duty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.6A8.5 8.5 0 1 1 21 12z"/></svg>
+                    <h4>Community Management</h4>
+                    <p>Engaging audiences, responding to enquiries and strengthening brand relationships.</p>
+                </div>
+                <div class="duty-card">
+                    <svg class="duty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.5-4.5L5 21"/></svg>
+                    <h4>Photo Editing & Visual Content</h4>
+                    <p>Editing and enhancing photos and visual assets for consistent, on-brand quality.</p>
+                </div>
+                <div class="duty-card is-wide">
+                    <svg class="duty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="m9 9-2 1.5L9 12M15 9l2 1.5-2 1.5"/></svg>
+                    <h4>Website Development & Management</h4>
+                    <p>Building, updating and maintaining the website to support UX and marketing goals.</p>
+                </div>
+            </div>
+
+            <div class="role-cta">
+                <a href="https://tdllaw.com.au/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit tdllaw.com.au →</a>
             </div>
         </div>
     </section>
